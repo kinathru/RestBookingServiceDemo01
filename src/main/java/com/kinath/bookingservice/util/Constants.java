@@ -37,7 +37,12 @@ public class Constants
 
     public static enum ProductType
     {
-        TOU( "TOU", "Tour" ), FLT( "FLT", "Flight" ), HTL( "HTL", "Hotel" ), GEN( "GEN", "Generic" ), CAR( "CAR", "Car" ), TRS( "TRS", "Transfer" ),;
+        TOU( "TOU", "Tour" ),
+        FLT( "FLT", "Flight" ),
+        HTL( "HTL", "Hotel" ),
+        GEN( "GEN", "Generic" ),
+        CAR( "CAR", "Car" ),
+        TRS( "TRS", "Transfer" ),;
 
         private String productCode;
         private String productName;

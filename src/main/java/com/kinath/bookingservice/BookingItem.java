@@ -38,4 +38,9 @@ public class BookingItem
     {
         this.productType = productType;
     }
+
+    @Override public String toString()
+    {
+        return "BookingItem{" + "bookingId=" + bookingId + ", itemNo=" + itemNo + ", productType='" + productType + '\'' + '}';
+    }
 }
