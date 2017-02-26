@@ -5,5 +5,9 @@ package com.kinath.bookingservice.util;
  */
 public class BookingLoaderUtil
 {
+    static
+    {
+
+    }
 
 }
