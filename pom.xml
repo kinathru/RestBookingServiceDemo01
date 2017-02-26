@@ -69,9 +69,9 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>${tomcat-version}</version>
                 <!--<configuration>-->
-                    <!--<url>http://localhost:8080/manager</url>-->
-                    <!--<server>localhost</server>-->
-                    <!--<path>/${project.build.finalName}</path>-->
+                <!--<url>http://localhost:8080/manager</url>-->
+                <!--<server>localhost</server>-->
+                <!--<path>/${project.build.finalName}</path>-->
                 <!--</configuration>-->
             </plugin>
         </plugins>
