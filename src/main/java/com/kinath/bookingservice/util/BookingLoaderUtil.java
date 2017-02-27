@@ -3,7 +3,6 @@ package com.kinath.bookingservice.util;
 import com.kinath.bookingservice.Booking;
 import com.kinath.bookingservice.BookingItem;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -110,7 +109,7 @@ public class BookingLoaderUtil
         return null;
     }
 
-    public static String addBooking()
+    public static String createAndAddBooking()
     {
         Booking booking = new Booking();
         booking.setBookingId( bookingList.get( bookingList.size() -1 ).getBookingId() +1 );
@@ -123,6 +122,14 @@ public class BookingLoaderUtil
 
             setItemProductType( (bookingList.size() + 1), j, bookingItem );
         }
+        bookingList.add( booking );
+
+        return String.format( "Booking Added Successfully : %s ", booking.toString() );
+    }
+
+    public static String addBooking(Booking booking)
+    {
+        booking.setBookingId( bookingList.get( bookingList.size() -1 ).getBookingId() +1 );
         bookingList.add( booking );
 
         return String.format( "Booking Added Successfully : %s ", booking.toString() );
