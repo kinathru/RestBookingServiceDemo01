@@ -30,6 +30,7 @@ public class BookingLoaderUtil
                 bookingItem.setItemNo( j );
 
                 setItemProductType( i, j, bookingItem );
+                booking.getBookingItems().add( bookingItem );
             }
 
             bookingList.add( booking );

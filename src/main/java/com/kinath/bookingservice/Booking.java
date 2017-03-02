@@ -1,5 +1,6 @@
 package com.kinath.bookingservice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,6 +34,10 @@ public class Booking
 
     public List<BookingItem> getBookingItems()
     {
+        if( bookingItems == null )
+        {
+            bookingItems = new ArrayList<BookingItem>();
+        }
         return bookingItems;
     }
 
