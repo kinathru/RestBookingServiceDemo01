@@ -1,7 +1,0 @@
-com\kinath\bookingservice\BookingItem.class
-com\kinath\bookingservice\BookingService.class
-com\kinath\bookingservice\util\Constants$BookingType.class
-com\kinath\bookingservice\util\Constants.class
-com\kinath\bookingservice\Booking.class
-com\kinath\bookingservice\util\BookingLoaderUtil.class
-com\kinath\bookingservice\util\Constants$ProductType.class
