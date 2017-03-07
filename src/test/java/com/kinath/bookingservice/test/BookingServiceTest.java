@@ -2,10 +2,12 @@ package com.kinath.bookingservice.test;
 
 import com.google.gson.Gson;
 import com.kinath.bookingservice.Booking;
+import com.kinath.bookingservice.search.SearchCriteria;
 import com.kinath.bookingservice.util.BookingLoaderUtil;
 import com.kinath.bookingservice.util.Constants;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
@@ -55,11 +57,43 @@ public class BookingServiceTest
 
     public static void searchBookingTest()
     {
-        
+        SearchCriteria searchCriteria = new SearchCriteria();
+        searchCriteria.setBookingId( 10503 );
+        searchCriteria.setBookingType( Constants.BookingType.EP.getCode() );
+
+        String postUrl = "http://localhost:8080/RestBookingServiceDemo01/searchBooking";
+        HttpClient httpClient = HttpClientBuilder.create().build();
+        Gson gson = new Gson();
+
+        try
+        {
+            String jsonString = gson.toJson( searchCriteria );
+            System.out.println(jsonString);
+
+            HttpPost postRequest = new HttpPost( postUrl );
+            StringEntity entity = new StringEntity( jsonString );
+            postRequest.setEntity( entity );
+            HttpResponse response = httpClient.execute( postRequest );
+
+            System.out.println("Completed Successfully");
+        }
+        catch( UnsupportedEncodingException e )
+        {
+            e.printStackTrace();
+        }
+        catch( ClientProtocolException e )
+        {
+            e.printStackTrace();
+        }
+        catch( IOException e )
+        {
+            e.printStackTrace();
+        }
     }
 
     public static void main( String[] args )
     {
-        addBookingTest();
+        //addBookingTest();
+        searchBookingTest();
     }
 }

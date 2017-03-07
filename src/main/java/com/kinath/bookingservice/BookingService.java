@@ -49,6 +49,7 @@ public class BookingService
         return BookingLoaderUtil.addBooking( booking );
     }
 
+    @RequestMapping(value = "/searchBooking", method = RequestMethod.POST)
     public ResponseEntity<List<Booking>> searchBookings( HttpServletRequest httpServletRequest)
     {
         List<Booking> filteredBookings = new ArrayList<Booking>();
