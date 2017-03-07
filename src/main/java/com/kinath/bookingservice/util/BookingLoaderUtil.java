@@ -2,6 +2,7 @@ package com.kinath.bookingservice.util;
 
 import com.kinath.bookingservice.Booking;
 import com.kinath.bookingservice.BookingItem;
+import com.kinath.bookingservice.search.SearchCriteria;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,6 +139,22 @@ public class BookingLoaderUtil
         bookingList.add( booking );
 
         return String.format( "Booking Added Successfully : %s ", booking.toString() );
+    }
+
+    public static List<Booking> searchBookings( SearchCriteria searchCriteria )
+    {
+        List<Booking> bookings = new ArrayList<Booking>();
+
+        for( Booking booking : bookingList )
+        {
+            if( ( searchCriteria.getBookingId() > 0 && searchCriteria.getBookingId() == booking.getBookingId() )
+                    || ( ( searchCriteria.getBookingType() != null && searchCriteria.getBookingType().length() > 0 ) && searchCriteria.getBookingType().equals( booking.getBookingType() ) ) )
+            {
+                bookings.add( booking );
+            }
+        }
+
+        return bookings;
     }
 
 }

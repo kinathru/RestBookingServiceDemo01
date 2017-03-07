@@ -1,5 +1,7 @@
 package com.kinath.bookingservice;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kinath.bookingservice.search.SearchCriteria;
 import com.kinath.bookingservice.util.BookingLoaderUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +53,21 @@ public class BookingService
     {
         List<Booking> filteredBookings = new ArrayList<Booking>();
 
-        //TODO: Implement booking search method
+        ObjectMapper mapper = new ObjectMapper();
+        SearchCriteria searchCriteria = null;
+        try
+        {
+            searchCriteria = mapper.readValue( httpServletRequest.getInputStream(),SearchCriteria.class );
+        }
+        catch( IOException e )
+        {
+            e.printStackTrace();
+        }
+
+        if( searchCriteria != null )
+        {
+            filteredBookings = BookingLoaderUtil.searchBookings( searchCriteria );
+        }
 
         return new ResponseEntity<List<Booking>>( filteredBookings, HttpStatus.OK );
     }

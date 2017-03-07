@@ -53,6 +53,11 @@ public class BookingServiceTest
         }
     }
 
+    public static void searchBookingTest()
+    {
+        
+    }
+
     public static void main( String[] args )
     {
         addBookingTest();
