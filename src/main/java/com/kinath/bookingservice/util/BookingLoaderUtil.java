@@ -16,24 +16,28 @@ public class BookingLoaderUtil
     static
     {
         long counter = 10500;
-        for( int i = 0 ; i < 100 ; i++ )
+        for( int bookingCount = 0 ; bookingCount < 100 ; bookingCount++ )
         {
             Booking booking = new Booking();
             booking.setBookingId( counter++ );
 
-            setBookingType( i, booking );
-
-            for( int j = 0 ; j < 3 ; j++ )
-            {
-                BookingItem bookingItem = new BookingItem();
-                bookingItem.setBookingId( booking.getBookingId() );
-                bookingItem.setItemNo( j );
-
-                setItemProductType( i, j, bookingItem );
-                booking.getBookingItems().add( bookingItem );
-            }
+            setBookingType( bookingCount, booking );
+            addBookingItems( bookingCount, booking );
 
             bookingList.add( booking );
+        }
+    }
+
+    public static void addBookingItems( int bookingCount, Booking booking )
+    {
+        for( int bookingItemCount = 0 ; bookingItemCount < 3 ; bookingItemCount++ )
+        {
+            BookingItem bookingItem = new BookingItem();
+            bookingItem.setBookingId( booking.getBookingId() );
+            bookingItem.setItemNo( bookingItemCount );
+
+            setItemProductType( bookingCount, bookingItemCount, bookingItem );
+            booking.getBookingItems().add( bookingItem );
         }
     }
 
