@@ -27,4 +27,9 @@ public class SearchCriteria
     {
         this.bookingType = bookingType;
     }
+
+    @Override public String toString()
+    {
+        return "SearchCriteria{" + "bookingId=" + bookingId + ", bookingType='" + bookingType + '\'' + '}';
+    }
 }
