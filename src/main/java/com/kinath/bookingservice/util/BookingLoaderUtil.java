@@ -147,8 +147,8 @@ public class BookingLoaderUtil
 
         for( Booking booking : bookingList )
         {
-            if( ( searchCriteria.getBookingId() > 0 && searchCriteria.getBookingId() == booking.getBookingId() )
-                    || ( ( searchCriteria.getBookingType() != null && searchCriteria.getBookingType().length() > 0 ) && searchCriteria.getBookingType().equals( booking.getBookingType() ) ) )
+            if( ( searchCriteria.getBookingId() == -1 || ( searchCriteria.getBookingId() > 0 && searchCriteria.getBookingId() == booking.getBookingId() ) )
+                    && ( searchCriteria.getBookingType() == null || ( ( ( searchCriteria.getBookingType() != null && searchCriteria.getBookingType().length() > 0 ) && searchCriteria.getBookingType().equals( booking.getBookingType() ) ) ) ) )
             {
                 bookings.add( booking );
             }
