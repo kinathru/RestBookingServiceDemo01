@@ -99,7 +99,6 @@ public class BookingServiceTest
         }
     }
 
-    @Test
     public static void searchBookingTestWithBookingId()
     {
         SearchCriteria searchCriteria = new SearchCriteria();

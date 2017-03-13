@@ -99,10 +99,12 @@ public class BookingLoaderUtil
 
     public static Booking loadBooking(long bookingId)
     {
+        logger.info( "Loading Booking With ID : " + bookingId );
         for( Booking booking : bookingList )
         {
             if( booking.getBookingId() == bookingId )
             {
+                logger.info( "Booking Loaded : " + booking.toString() );
                 return booking;
             }
         }
