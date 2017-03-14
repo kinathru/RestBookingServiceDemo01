@@ -3,6 +3,7 @@ package com.kinath.bookingservice;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kinath.bookingservice.search.SearchCriteria;
 import com.kinath.bookingservice.util.BookingLoaderUtil;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +24,8 @@ import java.util.List;
  */
 @CrossOrigin
 @RestController
+@RequestMapping("/bookingservice")
+@Api(value = "Booking Service",description = "Booking Service Demo")
 public class BookingService
 {
     @RequestMapping(value = "/booking", method = RequestMethod.GET)
